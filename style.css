@@ -1,3 +1,17 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h3 {
+    background-color: white;
+    bottom: 0;
+    position: absolute;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -5,15 +19,15 @@
     height: 560px;
     border: solid black;
 }
-  
+
 .grid div {
     width: 20px;
     height: 20px;
 }
 
 .pac-dot {
-    background-color: green;   
-    border: 5px solid white;
+    background-color: #FEE27B;
+    border: 7px solid black;
     box-sizing: border-box;
 }
 
@@ -22,24 +36,33 @@
 }
 
 .power-pellet {
-    background-color: green;
+    background-color: #FEE27B;
     border-radius: 10px;
 }
 
-.blinky {
-    background-color: red;
+.stinky {
+    background-color: lightgreen;
+    border: 0px;
 }
 
-.pinky {
-    background-color: pink;
-}
-
-.inky {
+.chonky {
     background-color: cyan;
+    border: 0px;
 }
 
-.clyde {
-    background-color: orange;     
+.hooman {
+    background-color: pink;
+    border: 0px;
+}
+
+.sp00ky {
+    background-color: orange;
+    border: 0px;
+}
+
+.scared-ghost {
+    background-color: aquamarine;
+    border: 0px;
 }
 
 .pac-man {
@@ -47,6 +70,3 @@
     border-radius: 10px;
 }
 
-.scared-ghost {
-    background-color: aquamarine;
-}
