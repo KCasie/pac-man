@@ -125,11 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //create our ghost template 
     class Ghost {
         constructor(className, startIndex, speed) {
-            this.className = className;
-            this.startIndex = startIndex;
-            this.speed = speed;
-            this.currentIndex = startIndex;
-            this.timerID = NaN;
+            this.className = className
+            this.startIndex = startIndex
+            this.speed = speed
+            this.currentIndex = startIndex
+            this.timerId = NaN
         }
     }
 
@@ -137,13 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
         new Ghost('stinky', 348, 250),
         new Ghost('chonky', 376, 400),
         new Ghost('hooman', 351, 300),
-        new Ghost('sp00ky', 379, 500),
+        new Ghost('sp00ky', 379, 500)
     ]
 
     //draw my ghoosts onto the grid
     ghosts.forEach(ghost => {
-        squares[ghost.currentIndex].classList.add(ghost.className);
-        squares[ghost.currentIndex].classList.add('ghost');
+        squares[ghost.currentIndex].classList.add(ghost.className)
+        squares[ghost.currentIndex].classList.add('ghost')
     });
 
     //move all the ghosts randomly 
@@ -151,7 +151,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //write the function to move the ghosts 
     moveGhost = (ghost) => {
-
+        const directions = [-1, +1, width, -width]
+        let direction = directions[Math.floor(Math.random() * directions.length)]
+        ghost.timerId = setInterval(() => {
+            //if the next square your ghost is going to go in does NOT contain a wall and a ghost, you can go there
+            if (!squares[ghost.currentIndex + direction].classList.contains('wall') && !squares[ghost.currentIndex + direction].classList.contains('ghost')) {
+                //you can go here 
+                //remove all ghost related classes
+                squares[ghost.currentIndex].classList.remove(ghost.className)
+                squares[ghost.currentIndex].classList.remove('ghost', 'scared-ghost')
+                //change the currentindex to the new safe square
+                ghost.currentIndex += direction
+                //redraw the ghost in the new safe space
+                squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
+                //else find a new direction to try
+            } else direction = directions[Math.floor(Math.random() * directions.length)]
+            //else find a new direction to try
+        }, ghost.speed);
     }
 
 })
