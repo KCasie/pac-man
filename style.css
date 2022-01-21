@@ -3,12 +3,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 h3 {
-    background-color: white;
-    bottom: 0;
+    color: white;
+    top: 50px;
     position: absolute;
 }
 
@@ -41,7 +41,7 @@ h3 {
 }
 
 .stinky {
-    background-color: lightgreen;
+    background-color: red;
     border: 0px;
 }
 
